@@ -1,0 +1,76 @@
+{
+  "name": "typescript-patternplate-resolver",
+  "version": "0.1.0",
+  "description": "TypeScript server plugin to inject pattern resolution algorithm in the language service",
+  "main": "dist/src/index.js",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "linter": "tslint --project ./tsconfig.json",
+    "start": "npm test",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc --inlineSourceMap",
+    "pretest": "npm run build",
+    "test": "nyc ava",
+    "coverage": "nyc report --reporter=lcov && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "prerelease": "npm test",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin master && npm publish"
+  },
+  "author": {
+    "name": "Markus Wolf",
+    "email": "knister.peter@shadowrun-clan.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "KnisterPeter/typescript-patternplate-resolver"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@knisterpeter/standard-tslint": "^1.4.0",
+    "@types/node": "^7.0.15",
+    "ava": "^0.19.1",
+    "conventional-changelog-cli": "^1.3.1",
+    "coveralls": "^2.13.1",
+    "cz-conventional-changelog": "^2.0.0",
+    "nyc": "^10.3.0",
+    "rimraf": "^2.6.1",
+    "source-map-support": "^0.4.15",
+    "standard-version": "^4.0.0",
+    "tslint": "^5.1.0"
+  },
+  "dependencies": {
+    "find-root": "^1.0.0",
+    "typescript": "^2.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "ava": {
+    "files": [
+      "dist/tests/**/*-test.js"
+    ],
+    "source": [
+      "dist/src/**/*.js"
+    ],
+    "require": [
+      "source-map-support/register"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "cache": true,
+    "exclude": [
+      "wallaby.conf.js",
+      "node_modules",
+      "coverage",
+      "dist/tests",
+      "tests"
+    ]
+  }
+}

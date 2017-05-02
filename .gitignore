@@ -1,0 +1,6 @@
+/node_modules
+*.js.map
+coverage/
+.nyc_output/
+npm-debug.log
+dist/
