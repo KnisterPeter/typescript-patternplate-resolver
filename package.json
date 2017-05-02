@@ -53,7 +53,7 @@
   },
   "ava": {
     "files": [
-      "dist/tests/**/*-test.js"
+      "dist/tests/**/*.test.js"
     ],
     "source": [
       "dist/src/**/*.js"
