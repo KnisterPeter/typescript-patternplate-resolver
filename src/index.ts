@@ -26,6 +26,7 @@ function init(modules: { typescript: typeof ts_module }):
   }
 
   function create(info: ts.server.PluginCreateInfo): ts.LanguageService {
+    info.project.projectService.logger.info('Configuring patternplate resolver for typescript');
     const resolveModuleNames = info.languageServiceHost.resolveModuleNames;
     info.languageServiceHost.resolveModuleNames = function(moduleNames: string[], containingFile: string):
         ts_module.ResolvedModule[] {
