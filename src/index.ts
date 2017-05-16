@@ -25,6 +25,19 @@ function init(modules: { typescript: typeof ts_module }):
     return undefined as any;
   }
 
+  function defaultTypescriptResolver(moduleName: string, containingFile: string,
+      info: ts.server.PluginCreateInfo, resolveModuleNames: any): ts_module.ResolvedModule | undefined {
+    if (!moduleName.startsWith('.') && resolveModuleNames) {
+      // info.project.projectService.logger.info(`Resolve ${moduleName} on orig LSHost`);
+      const result = resolveModuleNames.call(info.languageServiceHost, [moduleName],
+        containingFile) as ts_module.ResolvedModule[];
+      if (result && result.length > 0) {
+        return result[0];
+      }
+    }
+    return undefined;
+  }
+
   function create(info: ts.server.PluginCreateInfo): ts.LanguageService {
     info.project.projectService.logger.info('Configuring patternplate resolver for typescript');
     const resolveModuleNames = info.languageServiceHost.resolveModuleNames;
@@ -43,15 +56,7 @@ function init(modules: { typescript: typeof ts_module }):
             return resolvedModule;
           }
         }
-        if (resolveModuleNames) {
-          // info.project.projectService.logger.info(`Resolve ${moduleName} on orig LSHost`);
-          const result = resolveModuleNames.call(info.languageServiceHost, [moduleName],
-            containingFile) as ts_module.ResolvedModule[];
-          if (result && result.length > 0) {
-            return result[0];
-          }
-        }
-        return undefined;
+        return defaultTypescriptResolver(moduleName, containingFile, info, resolveModuleNames);
       });
       if (resolvedNames && resolvedNames.length > 0) {
         return resolvedNames as any;
