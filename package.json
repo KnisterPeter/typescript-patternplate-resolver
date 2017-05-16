@@ -1,6 +1,6 @@
 {
   "name": "typescript-patternplate-resolver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript server plugin to inject pattern resolution algorithm in the language service",
   "main": "dist/src/index.js",
   "files": [
