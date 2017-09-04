@@ -13,7 +13,7 @@ function init(modules: { typescript: typeof ts_module }):
       info.project.projectService.logger.info(`Resolved Pattern to ${resolvedFileName}`);
       return { resolvedFileName };
     } else {
-      const pkg = JSON.parse(ts.sys.readFile(patternJson));
+      const pkg = JSON.parse(ts.sys.readFile(patternJson) || '{}');
       // info.project.projectService.logger.info(`Dependency to ${moduleName}`);
       if (pkg.patterns && moduleName in pkg.patterns) {
         const root = findRoot(patternJson);
