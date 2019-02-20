@@ -1,3 +1,1 @@
-
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/KnisterPeter/typescript-patternplate-resolver.svg)](https://greenkeeper.io/)
+[![renovate badge](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/)
