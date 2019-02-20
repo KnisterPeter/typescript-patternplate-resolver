@@ -15,7 +15,7 @@
     "build": "tsc --inlineSourceMap",
     "pretest": "npm run build",
     "test": "nyc ava",
-    "coverage": "nyc report --reporter=lcov && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "coverage": "nyc report --reporter=lcov && codecov",
     "prerelease": "npm test",
     "release": "standard-version",
     "postrelease": "git push --follow-tags origin master && npm publish"
@@ -33,8 +33,8 @@
     "@knisterpeter/standard-tslint": "1.7.2",
     "@types/node": "10.9.4",
     "ava": "0.25.0",
+    "codecov": "^3.2.0",
     "conventional-changelog-cli": "1.3.22",
-    "coveralls": "3.0.2",
     "cz-conventional-changelog": "2.1.0",
     "nyc": "11.9.0",
     "rimraf": "2.6.2",
