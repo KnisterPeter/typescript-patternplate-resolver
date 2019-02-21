@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "find-root": "^1.0.0",
-    "typescript": "^2.5.2"
+    "typescript": "^3.0.0"
   },
   "config": {
     "commitizen": {
