@@ -42,7 +42,7 @@ function init(modules: { typescript: typeof ts_module }):
     info.project.projectService.logger.info('Configuring patternplate resolver for typescript');
     const resolveModuleNames = info.languageServiceHost.resolveModuleNames;
     info.languageServiceHost.resolveModuleNames = function(moduleNames: string[], containingFile: string):
-        ts_module.ResolvedModule[] {
+        (ts_module.ResolvedModule | undefined)[] {
 
       const resolvedNames = moduleNames.map(moduleName => {
         // info.project.projectService.logger.info(`Resolve ${moduleName} in ${containingFile}`);
@@ -76,8 +76,7 @@ function init(modules: { typescript: typeof ts_module }):
           return result.resolvedModule;
         }
 
-        // note: as any is a quirk here, since the CompilerHost interface does not allow strict null checks
-        return undefined as any;
+        return undefined;
       });
     };
     return info.languageService;
