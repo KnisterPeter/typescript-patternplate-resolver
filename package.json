@@ -55,7 +55,7 @@
     "files": [
       "dist/tests/**/*.test.js"
     ],
-    "source": [
+    "sources": [
       "dist/src/**/*.js"
     ],
     "require": [
