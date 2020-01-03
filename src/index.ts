@@ -41,8 +41,12 @@ function init(modules: { typescript: typeof ts_module }):
   function create(info: ts.server.PluginCreateInfo): ts.LanguageService {
     info.project.projectService.logger.info('Configuring patternplate resolver for typescript');
     const resolveModuleNames = info.languageServiceHost.resolveModuleNames;
-    info.languageServiceHost.resolveModuleNames = function(moduleNames: string[], containingFile: string):
-        (ts_module.ResolvedModule | undefined)[] {
+    info.languageServiceHost.resolveModuleNames = function(
+        moduleNames: string[],
+        containingFile: string,
+        reusedNames: string[] | undefined,
+        redirectedReference: ts_module.ResolvedProjectReference | undefined,
+        options: ts_module.CompilerOptions): (ts_module.ResolvedModule | undefined)[] {
 
       const resolvedNames = moduleNames.map(moduleName => {
         // info.project.projectService.logger.info(`Resolve ${moduleName} in ${containingFile}`);
@@ -64,7 +68,14 @@ function init(modules: { typescript: typeof ts_module }):
 
       if (resolveModuleNames) {
         info.project.projectService.logger.info(`Resolve all on orig LSHost`);
-        return resolveModuleNames.call(info.languageServiceHost, moduleNames, containingFile);
+        return resolveModuleNames.call(
+          info.languageServiceHost,
+          moduleNames,
+          containingFile,
+          reusedNames,
+          redirectedReference,
+          options
+        );
       }
 
       // fallback to standard resolving

@@ -31,7 +31,7 @@
   "license": "MIT",
   "devDependencies": {
     "@knisterpeter/standard-tslint": "1.7.2",
-    "@types/node": "10.9.4",
+    "@types/node": "13.1.2",
     "ava": "2.4.0",
     "codecov": "3.6.1",
     "conventional-changelog-cli": "2.0.31",
@@ -43,8 +43,8 @@
     "tslint": "5.20.1"
   },
   "dependencies": {
-    "find-root": "^1.0.0",
-    "typescript": "^3.0.0"
+    "find-root": "1.1.0",
+    "typescript": "3.7.4"
   },
   "config": {
     "commitizen": {
