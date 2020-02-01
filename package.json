@@ -55,9 +55,6 @@
     "files": [
       "dist/tests/**/*.test.js"
     ],
-    "sources": [
-      "dist/src/**/*.js"
-    ],
     "require": [
       "source-map-support/register"
     ]
