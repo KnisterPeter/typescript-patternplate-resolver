@@ -71,12 +71,9 @@
     ]
   },
   "renovate": {
-    "extends": [
-      "config:base"
-    ],
-    "semanticPrefix": "chore:",
     "lockFileMaintenance": {
-      "enabled": true
+      "enabled": true,
+      "automerge": true
     },
     "packageRules": [
       {
