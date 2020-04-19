@@ -32,7 +32,7 @@
   "devDependencies": {
     "@knisterpeter/standard-tslint": "1.7.2",
     "@types/node": "13.13.0",
-    "ava": "3.7.0",
+    "ava": "3.7.1",
     "codecov": "3.6.5",
     "conventional-changelog-cli": "2.0.31",
     "cz-conventional-changelog": "3.1.0",
