@@ -35,7 +35,7 @@
     "ava": "3.12.1",
     "codecov": "3.7.2",
     "conventional-changelog-cli": "2.1.0",
-    "cz-conventional-changelog": "3.2.1",
+    "cz-conventional-changelog": "3.3.0",
     "nyc": "15.1.0",
     "rimraf": "3.0.2",
     "source-map-support": "0.5.19",
