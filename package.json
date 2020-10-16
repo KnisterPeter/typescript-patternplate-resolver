@@ -31,7 +31,7 @@
   "license": "MIT",
   "devDependencies": {
     "@knisterpeter/standard-tslint": "1.7.2",
-    "@types/node": "14.11.8",
+    "@types/node": "14.11.9",
     "ava": "3.13.0",
     "codecov": "3.8.0",
     "conventional-changelog-cli": "2.1.0",
